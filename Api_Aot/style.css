@@ -1,0 +1,170 @@
+:root {
+    --cor-fundo: #f0f4f8;
+    --cor-card: #fff;
+    --cor-texto: #1a202c;
+    --cor-sub: #4a5568;
+    --cor-borda: #e7e8f0;
+    --cor-principal: #3b82f6;
+    --sombra: 0 4px 12px rgba(0,0,0,0.080);
+    --sombra-hover: 0 8px 24px rgba(0,0,0,0.12);
+    --radius: 12px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 20px 48px;
+}
+
+main section {
+    margin-bottom: 36px;
+}
+
+main h2 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--cor-borda);
+}
+
+.cards-container {
+    display: flex;
+    gap: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.personagem-card {
+    background-color: var(--cor-card);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: var(--sombra);
+    display: flex;
+    flex-direction: column;
+    min-width: 20%;
+}
+
+.personagem-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--sombra-hover);
+}
+
+/* Estilo aplicado quando o personagem estiver falecido */
+.personagem-card.card-falecido {
+    background-color: #fff5f5;
+    border: 2px solid #ef4444;
+}
+
+.personagem-card.card-falecido .personagem-img {
+    background: linear-gradient(135deg, #fecdd3 0%, #fda4af 100%);
+}
+
+.personagem-card.card-falecido .personagem-id {
+    color: #dc2626;
+}
+
+.personagem-img {
+    background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe);
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+}
+
+.personagem-img img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    transition: transform 0.3s;
+}
+
+.personagem-info {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.personagem-info h3 {
+    font-size: 1.2rem;
+    text-transform: capitalize;
+}
+
+.personagem-id {
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    color: var(--cor-principal);
+    font-size: 0.9rem;
+    margin-top: -4px;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.pagination button {
+    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #d1d5db;
+    padding: 8px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.pagination button:hover {
+    background-color: #f3f4f6;
+    border-color: #9ca3af;
+    color: #111827;
+}
+
+.pagination button:active {
+    transform: scale(0.98);
+}
+
+.pagination button:disabled {
+    background-color: #f9fafb;
+    color: #9ca3af;
+    border-color: #e5e7eb;
+    cursor: not-allowed;
+}
+
+#page-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
